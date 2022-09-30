@@ -1,0 +1,93 @@
+﻿@using WebApplication22sep.Models.EntityLayer;
+@model List<User>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>User List</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-right">
+            <a class="btn btn-warning">@ViewBag.message</a>
+        </div>
+        <div class="col-lg-12">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Description</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Status</th>
+                        <th>IsDelete</th>
+                        <th>IsAdmin</th>
+                        <th>IsSub</th>
+                        <th>IsWriter</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.SurName</td>
+                                <td>@item.Description</td>
+                                <td>@item.Email</td>
+                                <td>@item.Password</td>
+                                <td>
+                                    @{
+                                        string[] status = item.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                                    }
+                                    <a class="btn @status[0]" href="#">@status[1]</a>
+                                </td>
+                                <td>
+                                    @{
+                                        string[] IsAdmin = item.IsAdmin == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                                    }
+                                    <a class="btn @IsAdmin[0]" href="#">@IsAdmin[1]</a>
+                                </td>
+                                <td>
+                                    @{
+                                        string[] IsSub = item.IsSub == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                                    }
+                                    <a class="btn @IsSub[0]" href="#">@IsSub[1]</a>
+                                </td>
+
+                                <td>
+                                    @{
+                                        string[] IsWriter = item.IsWriter == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                                    }
+                                    <a class="btn @IsWriter[0]" href="#">@IsWriter[1]</a>
+                                </td>
+
+                                <td>
+                                    <a href="/Home/User/Edit/@item.Id" class="btn btn-primary">Edit</a>
+                                    <a href="/Home/User/Delete/@item.Id" class="btn btn-danger">Delete</a>
+                                    
+                                </td>
+
+                            </tr>
+                        }
+                    }
+            else
+            {
+                <tr>
+                    <td>
+                        <h2>User list is empty.</h2>
+                    </td>
+                </tr>
+            }
+
+    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,25 @@
+﻿@model WebApplication22sep.Models.EntityLayer.Category
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Category Details</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form method="post">
+                <label class="label" for="UserName"> Category Name</label>
+                <input class="form-control" type="text" id="CategoryName" name="Name" min="1" required value="@Model.Name">
+                <label class="label" for="CategoryDescription"></label>
+                <input class="form-control" type="text" id="CategoryDescription" name="Description" min="1" required value="@Model.Description">
+                <label class="label" for="CategoryStatus"></label>
+                <input class="form-control" type="text" id="CategoryStatus" name="Status" required value="@Model.Status">
+                <label class="label" for="IsDelete"></label>
+                <input class="form-control" type="text" id="IsDelete" name="IsDelete" required value="@Model.IsDelete">
+                <button type="submit" class="btn btn-success">Add User</button>
+            </form>
+        </div>
+
+    </div>
+</div>

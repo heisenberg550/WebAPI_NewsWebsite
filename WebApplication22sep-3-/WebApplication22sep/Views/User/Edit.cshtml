@@ -1,0 +1,87 @@
+﻿@model WebApplication22sep.Models.EntityLayer.User
+
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>Detail</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form method="post" @*enctype="multipart/form-data"*@>
+                <label class="label" for="UserId">User Id</label>
+                <input class="form-control" type="number" id="UserId" name="Id" min="1" required value="@Model.Id" disabled/>
+                <label class="label" for="UserName"></label>
+                <input class="form-control" type="text" id="UserName" name="Name" min="1" required value="@Model.Name">
+                <label class="label" for="UserSurName"></label>
+                <input class="form-control" type="text" id="UserSurName" name="SurName" min="1" required value="@Model.SurName">
+                <label class="label" for="UserDescription"></label>
+                <input class="form-control" type="text" id="UserDescription" name="Description" min="1" required value="@Model.Description">
+                <label class="label" for="UserStatus"></label>
+                <input class="form-control" type="text" id="UserStatus" name="Status" min="1" required value="@Model.Status">
+
+
+
+                <button type="submit" class="btn btn-success">Get User</button>
+
+
+
+
+            </form>
+        </div>
+        <div class="col-lg-6 left">
+            <table class="table table-hover">
+                <h2>User Detail</h2>
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>:</td>
+                        <th>@Model.Id</th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>:</td>
+                        <th>@Model.Name</th>
+                    </tr>
+                    <tr>
+                        <th>Surname</th>
+                        <td>:</td>
+                        <th>@Model.SurName</th>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>:</td>
+                        <th>@Model.Description</th>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+
+                        <th>@Model.Status</th>
+                        <td>:</td>
+                        <td>
+                            @{
+                                var status = Model.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                            }
+                            <a class="btn @status[0]">@status[1]</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+@*host işleminde sadece name ve ıd görünür max min post edilmeden önceki kontroller
+    kendi özelliği isterseniz burdan kontrol eden isterseniz calsstan proportyden kontrol edin
+    value 0 dersen 0 dan başlar  *@
+@*@<input type="submit" class="btn btn-primary" value="Yazarı Getir" />*@
+@*multiform eğer fom içinde herhangi bir dosya gönderiliyorsa çalılır
+    Enctype da enctype=""
+        birdoya göndericekseniz resim pdf rar enctayp control ediyosunuz eğer başka bir veri yapısından deger gödneriyorsanız
+        form applicationkullanmanız
+        ACTİON NEREYE POST OLUCAGINI linkini yolunu yazıyoruz action="" *@
+@*ID sayısı ise numeric degilse text*@
+@*gu ID muhakkak kullanın resim yüklüyosanız bilgisayar kullanmasını kullanmayı bilmeyenler adsız.jpeg diye kaydeder ve bütün
+    adsız.jpegler çakışıcak ve hataericek gu ıd gu ıd file name verdiğinizde benzersiz bir resim dosyası luşur *@
+

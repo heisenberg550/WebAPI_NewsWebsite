@@ -1,0 +1,34 @@
+﻿@model WebApplication22sep.Models.EntityLayer.User
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Detail</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form method="post">
+                <label class="label" for="UserName"> User Name</label>
+                <input class="form-control" type="text" id="UserName" name="Name" min="1" required value="@Model.Name">
+                <label class="label" for="UserSurName"></label>
+                <input class="form-control" type="text" id="UserSurName" name="SurName" min="1" required value="@Model.SurName">
+                <label class="label" for="UserDescription"></label>
+                <input class="form-control" type="text" id="UserDescription" name="Description" min="1" required value="@Model.Description">
+                <label class="label" for="UserStatus"></label>
+                <input class="form-control" type="text" id="UserStatus" name="Status" required value="@Model.Status">
+                <label class="label" for="IsWriter"></label>
+                <input class="form-control" type="text" id="IsWriter" name="IsWriter" required value="@Model.IsWriter">
+                <label class="label" for="IsSub"></label>
+                <input class="form-control" type="text" id="IsSub" name="IsSub" required value="@Model.IsSub">
+                <label class="label" for="IsDelete"></label>
+                <input class="form-control" type="text" id="IsDelete" name="IsDelete" required value="@Model.IsDelete">
+                <label class="label" for="IsAdmin"></label>
+                <input class="form-control" type="text" id="IsAdmin" name="IsAdmin" required value="@Model.IsAdmin">
+
+                <button type="submit" class="btn btn-success">Add User</button>
+            </form>
+        </div>
+
+    </div>
+</div>
