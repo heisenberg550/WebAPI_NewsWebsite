@@ -1,0 +1,73 @@
+﻿@using WebApplication22sep.Models.EntityLayer;
+@model List<Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Article List</h2>
+
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-lg-12 text-right">
+            <a class="btn btn-warning">@ViewBag.message</a>
+        </div>
+        <div class="col-3">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                    The current button
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">A second item</button>
+                <button type="button" class="list-group-item list-group-item-action">A third button item</button>
+                <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
+                <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                @if (Model.Count > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="col">
+                            <div class="card">
+                                <img src="holder.js/350x200">
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.Title</h5>
+                                    <p class="card-text">@item.Description</p>
+                                </div>
+                                @*<td>@item.Id</td>*@
+                                @*<td>@item.UserId</td>
+                        <td>@item.IsDeleted</td>
+                        <td>@item.CategoryId</td>*@
+                                <span>
+                                    @{
+                                        string[] IsDeleted = item.IsDeleted == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                                    }
+                                    <a class="btn @IsDeleted[0]" href="#">@IsDeleted[1]</a>
+                                </span>
+                                <div>
+                                    <a href="/Home/Article/Edit/@item.Id" class="btn btn-primary">Edit</a>
+                                    <a href="/Home/Article/Delete/@item.Id" class="btn btn-danger">Delete</a>
+                                    <a href="/Home/Article/Detail/@item.Id" class="btn btn-success">Read more</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+
+                    <div>
+                        <h2>Article list is empty.</h2>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

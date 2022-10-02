@@ -1,0 +1,42 @@
+﻿@model WebApplication22sep.Models.EntityLayer.Article
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>@Model.Title</h2>
+
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Title</h1>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="label label-indigo">Writer: @Model.UserId</span>
+                            <span class="badge bg-success">Category Name: @Model.CategoryId</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mt-2" id="content">
+                            <p>@Model.Content</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="~/themes/img/CloudStorage.png" class="img-fluid  w-100">
+        </div>
+    </div>
+</div>
+
+        @*<div class="col-lg-6 text-right">
+            <form method="post">
+                <label class="label" for="UserId"> User Id </label>
+                <input class="form-control" input type="number" id="UserId" name="UserId" max="10000" min="0" value="@Model.Id" required /> 
+                <button type="submit" class="btn btn-success"> User Getir   </button>
+            </form>
+        </div>*@
+       

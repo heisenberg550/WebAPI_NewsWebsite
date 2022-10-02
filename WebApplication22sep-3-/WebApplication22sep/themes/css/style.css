@@ -1,0 +1,39 @@
+:root{
+  --first-color :#949398FF;
+  --secondery-color: #F4DF4EFF;
+  --white:#ffffff;
+
+}
+
+body { background-color: #ffffff; }
+
+
+.jumbotron{
+  background-image: url("../img/CloudStoragebanner.png");
+  background-size: cover;
+  height: 100%;
+  padding: 1rem;
+}
+
+.jumbotron h1, .jumbotron p{
+  color: var(--white);
+}
+.navbar{
+  background-color: var(--secondery-color) ;
+  color: var(--first-color);
+}
+
+.navbar a{
+  color: var(--first-color);
+}
+
+
+
+
+.footer{
+  background-color: var(--first-color) ;
+  color: var(--secondery-color);
+}
+
+h2 { border-bottom: 2px solid var(--first-color); }
+

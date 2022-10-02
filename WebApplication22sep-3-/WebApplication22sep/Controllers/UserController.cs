@@ -36,6 +36,9 @@ namespace WebApplication22sep.Controllers
                 catch (Exception)
                 {
 
+
+
+
                     ViewBag.message = "Api bağlantısı başarısız.";
 
                 }
@@ -45,7 +48,7 @@ namespace WebApplication22sep.Controllers
             return View(user);
         }
 
-       
+
 
         [HttpGet]
         public ActionResult Detail()
@@ -177,6 +180,85 @@ namespace WebApplication22sep.Controllers
             }
 
             return View(edituser);
+
+
+        }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            List<User> user = new List<User>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44359/");
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage mesaj = new HttpResponseMessage();
+                try
+                {
+                    mesaj = client.GetAsync("api/user").Result;
+                    user = mesaj.Content.ReadAsAsync<List<User>>().Result;
+
+                    ViewBag.message = "Api bağlantısı başarılı.";
+                }
+                catch (Exception)
+                {
+
+
+
+
+                    ViewBag.message = "Api bağlantısı başarısız.";
+
+                }
+
+
+            }
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
+            User LoginUser = new User();
+
+            LoginUser.Id = user.Id;
+            LoginUser.Name = user.Name;
+            LoginUser.SurName = user.SurName;
+            LoginUser.Description = user.Description;
+            LoginUser.Status = user.Status;
+            LoginUser.IsAdmin=user.IsAdmin; 
+            LoginUser.IsWriter =user.IsWriter; 
+            LoginUser.IsSub=user.IsSub; 
+
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44359/");
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage mesaj = new HttpResponseMessage();
+                try
+                {
+                    mesaj = client.PutAsJsonAsync("api/User/", LoginUser).Result;
+
+
+                    if (mesaj.IsSuccessStatusCode)
+                    {
+                        LoginUser = mesaj.Content.ReadAsAsync<User>().Result;
+                        ViewBag.message = "Api bağlantısı başarılı.";
+
+                    }
+                    else
+                    {
+                        ViewBag.message = LoginUser.Id + "Api bağlantısı başarısız.";
+                    }
+                }
+                catch (Exception)
+                {
+
+                    ViewBag.message = "Api bağlantısı başarısız.";
+
+                }
+            }
+
+            return View(LoginUser);
 
 
         }
