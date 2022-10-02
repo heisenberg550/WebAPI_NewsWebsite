@@ -11,7 +11,6 @@ namespace HaberApi.Controllers
 {
     public class CatController : ApiController
     {
-
         DataContext db = new DataContext();
 
         public IEnumerable<Category> Get()
@@ -25,7 +24,6 @@ namespace HaberApi.Controllers
             var category = db.Category.FirstOrDefault(x => x.Id == id && x.IsDelete == false);
             if (category != null)
             {
-
                 return Ok(category);
             }
             else

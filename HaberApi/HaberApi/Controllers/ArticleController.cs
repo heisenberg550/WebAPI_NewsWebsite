@@ -2,15 +2,14 @@
 using HaberApi.Models.EntityModel;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace HaberApi.Controllers
 {
-    public class ArticleContoller: ApiController
+    public class ArticleController : ApiController
     {
         DataContext db = new DataContext();
 
@@ -26,7 +25,6 @@ namespace HaberApi.Controllers
             if (article != null)
             {
                 return Ok(article);
-
             }
             else
             {
@@ -34,18 +32,18 @@ namespace HaberApi.Controllers
             }
         }
 
-        public IHttpActionResult GetbyYazarID(int id)
-        {
-            var article = db.Article.FirstOrDefault(x => x.UserId == id && x.IsDelete == false);
-            if (article != null)
-            {
-                return Ok(article);
-            }
-            else
-            {
-                return NotFound();
-            }
-        }
+        //public IHttpActionResult GetbyYazarID(int id)
+        //{
+        //    var article = db.Article.FirstOrDefault(x => x.UserId == id && x.IsDelete == false);
+        //    if (article != null)
+        //    {
+        //        return Ok(article);
+        //    }
+        //    else
+        //    {
+        //        return NotFound();
+        //    }
+        //}
 
         public IHttpActionResult Post([FromBody] Article article)
         {
@@ -61,7 +59,7 @@ namespace HaberApi.Controllers
             {
                 article.IsDelete = true;
                 db.SaveChanges();
-                return Ok(" Başarıyla Silinmiştir");
+                return Ok("article Başarılı Bir Şekilde Silindi");
             }
             else
             {
@@ -81,13 +79,12 @@ namespace HaberApi.Controllers
                 editarticle.CategoryId = article.CategoryId;
                 editarticle.UserId = article.UserId;
                 db.SaveChanges();
-                return Ok("Kitap Başarılı bir şekilde güncelledi.");
+                return Ok("Raf Başarılı bir şekilde güncellendi.");
             }
             else
             {
                 return NotFound();
             }
         }
-
     }
 }

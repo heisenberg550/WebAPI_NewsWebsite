@@ -164,7 +164,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\ArticleContoller.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\CatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -179,6 +179,10 @@
     <Compile Include="Migrations\202209271848228_second.cs" />
     <Compile Include="Migrations\202209271848228_second.designer.cs">
       <DependentUpon>202209271848228_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210012257125_article.cs" />
+    <Compile Include="Migrations\202210012257125_article.designer.cs">
+      <DependentUpon>202210012257125_article.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
@@ -277,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209271848228_second.resx">
       <DependentUpon>202209271848228_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210012257125_article.resx">
+      <DependentUpon>202210012257125_article.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
