@@ -6,9 +6,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>User List</h2>
+
 <div class="container">
     <div class="row">
+        <h2>User List</h2>
         <div class="col-lg-12 text-right">
             <a class="btn btn-warning">@ViewBag.message</a>
         </div>
@@ -27,6 +28,7 @@
                         <th>IsAdmin</th>
                         <th>IsSub</th>
                         <th>IsWriter</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,60 +36,65 @@
                     {
                         foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>@item.Name</td>
-                                <td>@item.SurName</td>
-                                <td>@item.Description</td>
-                                <td>@item.Email</td>
-                                <td>@item.Password</td>
-                                <td>
-                                    @{
-                                        string[] status = item.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
-                                    }
-                                    <a class="btn @status[0]" href="#">@status[1]</a>
-                                </td>
-                                <td>
-                                    @{
-                                        string[] IsAdmin = item.IsAdmin == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
-                                    }
-                                    <a class="btn @IsAdmin[0]" href="#">@IsAdmin[1]</a>
-                                </td>
-                                <td>
-                                    @{
-                                        string[] IsSub = item.IsSub == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
-                                    }
-                                    <a class="btn @IsSub[0]" href="#">@IsSub[1]</a>
-                                </td>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.SurName</td>
+                        <td>@item.Description</td>
+                        <td>@item.Email</td>
+                        <td>@item.Password</td>
+                        <td>
+                            @{
+                                string[] status = item.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                            }
+                            <a class="btn @status[0]" href="#">@status[1]</a>
+                        </td>
+                        <td>
+                            @{
+                                string[] IsDelete = item.IsDelete == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                            }
+                            <a class="btn @IsDelete[0]" href="#">@IsDelete[1]</a>
+                        </td>
+                        <td>
+                            @{
+                                string[] IsAdmin = item.IsAdmin == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                            }
+                            <a class="btn @IsAdmin[0]" href="#">@IsAdmin[1]</a>
+                        </td>
+                        <td>
+                            @{
+                                string[] IsSub = item.IsSub == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                            }
+                            <a class="btn @IsSub[0]" href="#">@IsSub[1]</a>
+                        </td>
 
-                                <td>
-                                    @{
-                                        string[] IsWriter = item.IsWriter == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
-                                    }
-                                    <a class="btn @IsWriter[0]" href="#">@IsWriter[1]</a>
-                                </td>
+                        <td>
+                            @{
+                                string[] IsWriter = item.IsWriter == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };
+                            }
+                            <a class="btn @IsWriter[0]" href="#">@IsWriter[1]</a>
+                        </td>
+                        <td>
+                            <a href="/Home/User/Edit/@item.Id" class="btn btn-primary">Edit</a>
+                            <a href="/Home/User/Delete/@item.Id" class="btn btn-danger">Delete</a>
 
-                                <td>
-                                    <a href="/Home/User/Edit/@item.Id" class="btn btn-primary">Edit</a>
-                                    <a href="/Home/User/Delete/@item.Id" class="btn btn-danger">Delete</a>
-                                    
-                                </td>
+                        </td>
 
-                            </tr>
+                    </tr>
                         }
                     }
-            else
-            {
-                <tr>
-                    <td>
-                        <h2>User list is empty.</h2>
-                    </td>
-                </tr>
-            }
+                    else
+                    {
+                        <tr>
+                            <td>
+                                <h2>User list is empty.</h2>
+                            </td>
+                        </tr>
+                    }
 
-    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
+    </div>
     </div>
 

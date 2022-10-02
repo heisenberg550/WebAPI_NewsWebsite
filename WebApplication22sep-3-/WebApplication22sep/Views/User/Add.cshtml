@@ -9,21 +9,26 @@
     <div class="row">
         <div class="col-lg-6">
             <form method="post">
-                <label class="label" for="UserName"> User Name</label>
+
+                <label class="label" for="Email">Email</label>
+                <input class="form-control" type="email" id="UserName" name="Email" min="1" required value="@Model.Email">
+                <label class="label" for="Password">Password</label>
+                <input class="form-control" type="password" id="UserName" name="Password" min="1" required value="@Model.Password">
+                <label class="label" for="UserName">Name</label>
                 <input class="form-control" type="text" id="UserName" name="Name" min="1" required value="@Model.Name">
-                <label class="label" for="UserSurName"></label>
+                <label class="label" for="UserSurName">SurName</label>
                 <input class="form-control" type="text" id="UserSurName" name="SurName" min="1" required value="@Model.SurName">
-                <label class="label" for="UserDescription"></label>
+                <label class="label" for="UserDescription">User Description</label>
                 <input class="form-control" type="text" id="UserDescription" name="Description" min="1" required value="@Model.Description">
-                <label class="label" for="UserStatus"></label>
+                <label class="label" for="UserStatus">User Status</label>
                 <input class="form-control" type="text" id="UserStatus" name="Status" required value="@Model.Status">
-                <label class="label" for="IsWriter"></label>
+                <label class="label" for="IsWriter">Is Writer</label>
                 <input class="form-control" type="text" id="IsWriter" name="IsWriter" required value="@Model.IsWriter">
-                <label class="label" for="IsSub"></label>
+                <label class="label" for="IsSub">Is Sub</label>
                 <input class="form-control" type="text" id="IsSub" name="IsSub" required value="@Model.IsSub">
-                <label class="label" for="IsDelete"></label>
+                <label class="label" for="IsDelete">Is Delete</label>
                 <input class="form-control" type="text" id="IsDelete" name="IsDelete" required value="@Model.IsDelete">
-                <label class="label" for="IsAdmin"></label>
+                <label class="label" for="IsAdmin">Is Admin</label>
                 <input class="form-control" type="text" id="IsAdmin" name="IsAdmin" required value="@Model.IsAdmin">
 
                 <button type="submit" class="btn btn-success">Add User</button>

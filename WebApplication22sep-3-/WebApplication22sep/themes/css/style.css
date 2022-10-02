@@ -5,8 +5,21 @@
 
 }
 
-body { background-color: #ffffff; }
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
+    margin-top: 40px;
+    width: 100%;
+}
 
+#content-wrap {
+    padding-bottom: 2.5rem; /* Footer height */
+}
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
 
 .jumbotron{
   background-image: url("../img/CloudStoragebanner.png");
@@ -28,12 +41,15 @@ body { background-color: #ffffff; }
 }
 
 
-
-
-.footer{
-  background-color: var(--first-color) ;
-  color: var(--secondery-color);
+.footer {
+    background-color: var(--secondery-color);
+    color: var(--first-color);
 }
+
+
+
+
+
 
 h2 { border-bottom: 2px solid var(--first-color); }
 

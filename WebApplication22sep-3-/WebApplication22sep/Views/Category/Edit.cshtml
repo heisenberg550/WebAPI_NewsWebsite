@@ -3,18 +3,19 @@
 @{
     ViewBag.Title = "Edit";
 }
-<h2>Detail</h2>
+
 <div class="container">
     <div class="row">
+        <h2>Category Edit</h2>
         <div class="col-lg-6">
             <form method="post">
                 <label class="label" for="CategoryId">Category Id</label>
-                <input class="form-control" type="number" id="CategoryId" name="Id" min="1" required value="@Model.Id" disabled/>
-                <label class="label" for="CategoryName"></label>
+                <input class="form-control" type="number" id="CategoryId" name="Id" min="1" required value="@Model.Id" disabled />
+                <label class="label" for="CategoryName">Category Name</label>
                 <input class="form-control" type="text" id="CategoryName" name="Name" min="1" required value="@Model.Name">
-                <label class="label" for="CategorySurName"></label>
+                <label class="label" for="CategoryDescription">Category Description</label>
                 <input class="form-control" type="text" id="CategoryDescription" name="Description" min="1" required value="@Model.Description">
-                <label class="label" for="CategoryStatus"></label>
+                <label class="label" for="CategoryStatus">Category Status</label>
                 <input class="form-control" type="text" id="CategoryStatus" name="Status" min="1" required value="@Model.Status">
 
                 <button type="submit" class="btn btn-success">Edit Category</button>

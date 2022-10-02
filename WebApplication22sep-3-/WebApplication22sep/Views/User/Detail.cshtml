@@ -3,30 +3,31 @@
     ViewBag.Title = "Detail";
 }
 
-<h2>Detail</h2>
+
 <div class="container">
     <div class="row">
+        <h2>Detail</h2>
         <div class="col-lg-6 text-right">
             <form method="post">
                 @*multiform eğer fom içinde herhangi bir dosya gönderiliyorsa çalılır*@
                 @*Enctype da enctype=""
-        birdoya göndericekseniz resim pdf rar enctayp control ediyosunuz eğer başka bir veri yapısından deger gödneriyorsanız
-        form applicationkullanmanız
-        ACTİON NEREYE POST OLUCAGINI linkini yolunu yazıyoruz action="" *@
+                birdoya göndericekseniz resim pdf rar enctayp control ediyosunuz eğer başka bir veri yapısından deger gödneriyorsanız
+                form applicationkullanmanız
+                ACTİON NEREYE POST OLUCAGINI linkini yolunu yazıyoruz action="" *@
                 @*//model bind ne*@
                 @*enctype="multipart/form-data"*@>
 
-                <label class="label" for="UserId" > User Id </label>
+                <label class="label" for="UserId"> User Id </label>
                 @*ID sayısı ise numeric degilse text*@
                 @*gu ID muhakkak kullanın resim yüklüyosanız bilgisayar kullanmasını kullanmayı bilmeyenler adsız.jpeg diye kaydeder ve bütün
-        adsız.jpegler çakışıcak ve hataericek gu ıd gu ıd file name verdiğinizde benzersiz bir resim dosyası luşur *@
+                adsız.jpegler çakışıcak ve hataericek gu ıd gu ıd file name verdiğinizde benzersiz bir resim dosyası luşur *@
                 <input class="form-control" input type="number" id="UserId" name="UserId" max="10000" min="0" value="@Model.Id" required /> @*host işleminde sadece name ve ıd görünür max min post edilmeden önceki kontroller
-                                                                              kendi özelliği isterseniz burdan kontrol eden isterseniz calsstan proportyden kontrol edin
-        value 0 dersen 0 dan başlar  *@
-            <button type="submit" class="btn btn-success" > User Getir  @*ortaya getirir*@ </button>
+                                                                                      kendi özelliği isterseniz burdan kontrol eden isterseniz calsstan proportyden kontrol edin
+                value 0 dersen 0 dan başlar  *@
+                <button type="submit" class="btn btn-success"> User Getir  @*ortaya getirir*@ </button>
                 @*<button type="submit" class="btn btn-primary" value="Yazar Getir"> Yazar Getir/>*@  @*ortaya getirir*@
-               
-            
+
+
             </form>
         </div>
         <div class="col-lg-md-6 left">

@@ -79,7 +79,7 @@ namespace HaberApi.Controllers
                 editarticle.CategoryId = article.CategoryId;
                 editarticle.UserId = article.UserId;
                 db.SaveChanges();
-                return Ok("Raf Başarılı bir şekilde güncellendi.");
+                return Ok("article Başarılı bir şekilde güncellendi.");
             }
             else
             {

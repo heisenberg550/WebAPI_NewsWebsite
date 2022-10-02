@@ -36,86 +36,128 @@ namespace WebApplication22sep.Controllers
             return View(article);
         }
 
+        [HttpGet]
+        public ActionResult Detail(int Id)
+        {
+            Article article = new Article();
+
+            if (Id != 0 || Id > 0)
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://localhost:44359/");
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage mesaj = new HttpResponseMessage();
+                    try
+                    {
+                        mesaj = client.GetAsync("api/article/" + Id).Result;
+
+
+                        if (mesaj.IsSuccessStatusCode)
+                        {
+                            article = mesaj.Content.ReadAsAsync<Article>().Result;
+                            ViewBag.message = "Api bağlantısı başarılı.";
+
+                        }
+                        else
+                        {
+                            ViewBag.message = Id + "Api bağlantısı başarısız.";
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        ViewBag.message = "Api bağlantısı başarısız.";
+
+                    }
+                }
+            }
+
+            return View(article);
+
+
+        }
+
         //[HttpGet]
-        public ActionResult Detail(int ArticleId)
-        {
-            Article article = new Article();
-            if (ArticleId != 0 || ArticleId > 0)
-            {
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri("https://localhost:44359/");
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage mesaj = new HttpResponseMessage();
-                    try
-                    {
-                        mesaj = client.GetAsync("api/article/" + ArticleId).Result;
+        //public ActionResult Detail(int ArticleId)
+        //{
+        //    Article article = new Article();
+        //    if (ArticleId != 0 || ArticleId > 0)
+        //    {
+        //        using (var client = new HttpClient())
+        //        {
+        //            client.BaseAddress = new Uri("https://localhost:44359/");
+        //            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //            HttpResponseMessage mesaj = new HttpResponseMessage();
+        //            try
+        //            {
+        //                mesaj = client.GetAsync("api/article/" + ArticleId).Result;
 
 
-                        if (mesaj.IsSuccessStatusCode)
-                        {
-                            article = mesaj.Content.ReadAsAsync<Article>().Result;
-                            ViewBag.message = "Api bağlantısı başarılı.";
+        //                if (mesaj.IsSuccessStatusCode)
+        //                {
+        //                    article = mesaj.Content.ReadAsAsync<Article>().Result;
+        //                    ViewBag.message = "Api bağlantısı başarılı.";
 
-                        }
-                        else
-                        {
-                            ViewBag.message = ArticleId + "Api bağlantısı başarısız.";
-                        }
-                    }
-                    catch (Exception)
-                    {
+        //                }
+        //                else
+        //                {
+        //                    ViewBag.message = ArticleId + "Api bağlantısı başarısız.";
+        //                }
+        //            }
+        //            catch (Exception)
+        //            {
 
-                        ViewBag.message = "Api bağlantısı başarısız.";
+        //                ViewBag.message = "Api bağlantısı başarısız.";
 
-                    }
-                }
-            }
-            return View(article);
-        }
+        //            }
+        //        }
+        //    }
+        //    return View(article);
+        //}
 
-        [HttpPost]
-        public ActionResult Details(int ArticleId)
-        {
-            Article article = new Article();
+        //[HttpPost]
+        //public ActionResult Details(int ArticleId)
+        //{
+        //    Article article = new Article();
 
-            if (ArticleId != 0 || ArticleId > 0)
-            {
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri("https://localhost:44359/");
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage mesaj = new HttpResponseMessage();
-                    try
-                    {
-                        mesaj = client.GetAsync("api/article/" + ArticleId).Result;
-
-
-                        if (mesaj.IsSuccessStatusCode)
-                        {
-                            article = mesaj.Content.ReadAsAsync<Article>().Result;
-                            ViewBag.message = "Api bağlantısı başarılı.";
-
-                        }
-                        else
-                        {
-                            ViewBag.message = ArticleId + "Api bağlantısı başarısız.";
-                        }
-                    }
-                    catch (Exception)
-                    {
-
-                        ViewBag.message = "Api bağlantısı başarısız.";
-
-                    }
-                }
-            }
-
-            return View(article);
-        }
+        //    if (ArticleId != 0 || ArticleId > 0)
+        //    {
+        //        using (var client = new HttpClient())
+        //        {
+        //            client.BaseAddress = new Uri("https://localhost:44359/");
+        //            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //            HttpResponseMessage mesaj = new HttpResponseMessage();
+        //            try
+        //            {
+        //                mesaj = client.GetAsync("api/article/" + ArticleId).Result;
 
 
-       [HttpGet]
+        //                if (mesaj.IsSuccessStatusCode)
+        //                {
+        //                    article = mesaj.Content.ReadAsAsync<Article>().Result;
+        //                    ViewBag.message = "Api bağlantısı başarılı.";
+
+        //                }
+        //                else
+        //                {
+        //                    ViewBag.message = ArticleId + "Api bağlantısı başarısız.";
+        //                }
+        //            }
+        //            catch (Exception)
+        //            {
+
+        //                ViewBag.message = "Api bağlantısı başarısız.";
+
+        //            }
+        //        }
+        //    }
+
+        //    return View(article);
+        //}
+
+
+        [HttpGet]
         public ActionResult Edit(int Id)
         {
             Article article = new Article();

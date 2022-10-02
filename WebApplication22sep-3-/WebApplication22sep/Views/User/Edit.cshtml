@@ -3,13 +3,14 @@
 @{
     ViewBag.Title = "Edit";
 }
-<h2>Detail</h2>
+
 <div class="container">
     <div class="row">
+        <h2>User Edit</h2>
         <div class="col-lg-6">
             <form method="post" @*enctype="multipart/form-data"*@>
                 <label class="label" for="UserId">User Id</label>
-                <input class="form-control" type="number" id="UserId" name="Id" min="1" required value="@Model.Id" disabled/>
+                <input class="form-control" type="number" id="UserId" name="Id" min="1" required value="@Model.Id" disabled />
                 <label class="label" for="UserName"></label>
                 <input class="form-control" type="text" id="UserName" name="Name" min="1" required value="@Model.Name">
                 <label class="label" for="UserSurName"></label>
@@ -19,13 +20,7 @@
                 <label class="label" for="UserStatus"></label>
                 <input class="form-control" type="text" id="UserStatus" name="Status" min="1" required value="@Model.Status">
 
-
-
-                <button type="submit" class="btn btn-success">Get User</button>
-
-
-
-
+                <button type="submit" class="btn btn-success m-2">Edit User</button>
             </form>
         </div>
         <div class="col-lg-6 left">
